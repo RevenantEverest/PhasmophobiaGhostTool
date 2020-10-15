@@ -1,0 +1,10 @@
+#Items .disabled-card {
+    color: #2c2c2c !important;
+    background: #1a1a1a !important;
+}
+
+#Items .card-body:hover {
+    outline: 2px solid #3c3c3c;
+    cursor: pointer;
+    
+}
