@@ -7,6 +7,11 @@ import Ghosts from '../sections/Ghosts';
 
 class HomePage extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+
     render() {
         return(
             <div id="HomePage" className="app-page">
@@ -18,12 +23,18 @@ class HomePage extends Component {
                 </Row>
                 <Row>
                     <Col>
-                        <Notes className="mt-3" />
+                        <Notes 
+                        className="mt-3" 
+                        ghostToolData={this.props.ghostToolData}
+                        />
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <Ghosts className="mt-3" />
+                        <Ghosts 
+                        className="mt-3"
+                        ghostToolData={this.props.ghostToolData}
+                        />
                     </Col>
                 </Row>
             </Container>

@@ -1,0 +1,5 @@
+.EvidenceChecklist .strike-through-red {
+    color: red;
+    text-decoration: line-through;
+    background: #2c2c2c !important;
+}

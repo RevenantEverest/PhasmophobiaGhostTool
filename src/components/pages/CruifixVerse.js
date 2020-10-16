@@ -43,7 +43,7 @@ class CrucifixVerse extends Component {
                         </Row>
                         <Row className="mt-2">
                             <Col>
-                            <MDBCard style={{ height: "150px" }}>
+                            <MDBCard style={{ height: "200px" }}>
                             <MDBCardBody style={{ background: "#3c3c3c" }}>
                             <Row>
                                 <Col>

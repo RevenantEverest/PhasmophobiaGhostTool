@@ -11,3 +11,8 @@
     color: #D32F2F;
     cursor: pointer;
 }
+
+.Notes .form-control:focus {
+    border-color: #8c8c8c !important;
+    box-shadow: 0 1px 0 0 #8c8c8c !important;
+}

@@ -45,12 +45,12 @@ class Footer extends Component {
                             </a>
                             </Col>
                             <Col lg={2}>
-                            <a className="Footer-DBL ml-2" href="https://discordbots.org/bot/441338104545017878" >
+                            <a className="Footer-DBL" href="https://discordbots.org/bot/441338104545017878" >
                             <img src="https://discordbots.org/api/widget/servers/441338104545017878.svg?noavatar=true" alt="FiresideBOT" />
                             </a>
                             </Col>
                             <Col lg={2}>
-                            <a className="Footer-DBL ml-2" href="https://discordbots.org/bot/441338104545017878" >
+                            <a className="Footer-DBL" href="https://discordbots.org/bot/441338104545017878" >
                             <img src="https://discordbots.org/api/widget/upvotes/441338104545017878.svg?noavatar=true" alt="FiresideBOT" />
                             </a>
                             </Col>

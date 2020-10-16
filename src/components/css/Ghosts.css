@@ -8,3 +8,8 @@
     cursor: pointer;
     
 }
+
+.Ghosts .line-through {
+    text-decoration: line-through !important;
+    color: rgba(255, 0, 0, 0.356) !important;
+}

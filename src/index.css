@@ -45,3 +45,8 @@ code {
   background: #1c1c1c !important;
   border: 2px solid #5c5c5c;
 }
+
+.black-skin input[type="checkbox"].filled-in:checked + label::after {
+  background: rgb(0, 182, 9);
+  border-color: rgb(0, 182, 9);
+}

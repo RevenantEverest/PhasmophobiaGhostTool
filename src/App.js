@@ -25,7 +25,6 @@ import {
 } from 'mdbreact';
 
 import HomePage from './components/pages/HomePage';
-import VoiceRecognition from './components/pages/VoiceRecognition';
 import Items from './components/pages/Items';
 import Maps from './components/pages/Maps';
 import CrucifixVerse from './components/pages/CruifixVerse';
@@ -51,8 +50,28 @@ class App extends Component {
             toggleStateA: false,
             breakWidth: 1300,
             windowWidth: 0,
-            switch2: false
+            switch2: false,
+            ghostToolData: {
+                ghostName: null,
+                isEveryone: false,
+                isAlone: false,
+                collectedEvidence: [],
+                eliminatedEvidence: [],
+                sideObjective1: {
+                    isChecked: false,
+                    name: null
+                },
+                sideObjective2: {
+                    isChecked: false,
+                    name: null
+                },
+                sideObjective3: {
+                    isChecked: false,
+                    name: null
+                },
+            }
         };
+        this.updateGhostToolNotes = this.updateGhostToolNotes.bind(this);
     }
     
     componentDidMount() {
@@ -69,6 +88,17 @@ class App extends Component {
     handleResize = () => this.setState({ windowWidth: window.innerWidth });
     handleToggleClickA = () => this.setState({ toggleStateA: !this.state.toggleStateA });
     handleSwitchChange = nr => () => this.setState({ [`switch${nr}`]: !this.state[`switch${nr}`] });
+
+    updateCollectedEvidence() {
+
+    }
+
+    updateGhostToolNotes(compState) {
+        let ghostToolData = this.state.ghostToolData;
+        ghostToolData.isEveryone = compState.isEveryone;
+        ghostToolData.isAlone = compState.isAlone;
+        this.setState({ ghostToolData: ghostToolData });
+    }
 
     render() {
         const navStyle = {
@@ -98,10 +128,6 @@ class App extends Component {
                     <MDBSideNavLink to="/ghosttool" topLevel className="SideNav-El">
                         <FontAwesomeIcon className="FontAwesomeIcon" icon="ghost" />
                         Ghost Tool
-                    </MDBSideNavLink>
-                    <MDBSideNavLink to="/voice" topLevel className="SideNav-El">
-                        <FontAwesomeIcon className="FontAwesomeIcon" icon="microphone-alt" />
-                        Voice Recognitions Lines
                     </MDBSideNavLink>
                     <MDBSideNavLink to="/items" topLevel className="SideNav-El">
                         <FontAwesomeIcon className="FontAwesomeIcon" icon="briefcase" />
@@ -135,8 +161,14 @@ class App extends Component {
                     </MDBNavbarNav>
                 </MDBNavbar>
                 <main style={mainStyle}>
-                    <Route exact path="/ghosttool" component={HomePage} />
-                    <Route exact path="/voice" component={VoiceRecognition} />
+                    <Route exact path="/ghosttool" component={
+                        () => (
+                            <HomePage 
+                            ghostToolData={this.state.ghostToolData}
+                            updateGhostToolNotes={this.updateGhostToolNotes}
+                            />
+                        )} 
+                    />
                     <Route exact path="/items" component={Items} />
                     <Route exact path="/maps" component={Maps} />
                     <Route exact path="/crucifix" component={CrucifixVerse} />

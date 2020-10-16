@@ -3,6 +3,14 @@ import '../css/Ghosts.css';
 
 import { Container, Row, Col } from 'react-bootstrap';
 import { MDBCard, MDBCardBody } from 'mdbreact';
+import { connect } from 'react-redux';
+import { 
+    addEvidence, 
+    removeEvidence, 
+    eliminateEvidence, 
+    removeEliminatedEvidence,
+    resetEvidence
+} from '../../redux/actions';
 
 import EvidenceChecklist from './EvidenceChecklist';
 import GhostModal from './GhostModal';
@@ -15,27 +23,49 @@ class Ghosts extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            collectedEvidence: []
+            collectedEvidence: this.props.collectedEvidence,
+            eliminatedEvidence: this.props.eliminatedEvidence
         };
         this.addEvidence = this.addEvidence.bind(this);
         this.removeEvidence = this.removeEvidence.bind(this);
+        this.eliminateEvidence = this.eliminateEvidence.bind(this);
+        this.removeEliminatedEvidence = this.removeEliminatedEvidence.bind(this);
         this.handleEvidenceReset = this.handleEvidenceReset.bind(this);
     }
 
     addEvidence(el) {
         let currentEvidence = this.state.collectedEvidence;
         currentEvidence.push(el);
+        this.props.addEvidence(el);
         this.setState({ collectedEvidence: currentEvidence });
     }
 
     removeEvidence(el) {
         let currentEvidence = this.state.collectedEvidence;
         currentEvidence.splice(currentEvidence.indexOf(el), 1);
+        this.props.removeEvidence(el);
         this.setState({ collectedEvidence: currentEvidence });
     }
 
+    eliminateEvidence(el) {
+        let currentEliminatedEvidence = this.state.eliminatedEvidence;
+        currentEliminatedEvidence.push(el);
+        this.props.eliminateEvidence(el);
+        this.setState({ eliminateEvidence: currentEliminatedEvidence });
+    }
+
+    removeEliminatedEvidence(el) {
+        let currentEliminatedEvidence = this.state.eliminatedEvidence;
+        currentEliminatedEvidence.splice(currentEliminatedEvidence.indexOf(el), 1);
+        this.props.removeEliminatedEvidence(el);
+        this.setState({ eliminateEvidence: currentEliminatedEvidence });
+    }
+
     handleEvidenceReset() {
-        this.setState({ collectedEvidence: [] });
+        this.setState({ 
+            collectedEvidence: [], 
+            eliminatedEvidence: [] 
+        }, () => this.props.resetEvidence());
     }
 
     toggle = nr => () => {
@@ -48,9 +78,10 @@ class Ghosts extends Component {
     renderGhosts() {
         let GhostCards = GhostTypes.map((ghost, idx) => {
             let impossible = false;
-            this.state.collectedEvidence.forEach(el => {
-                if(!ghost.evidence.includes(el)) impossible = true;
-            });
+            if(this.state.collectedEvidence.filter(el => !ghost.evidence.includes(el)).length > 0)
+                impossible = true;
+            if(this.state.eliminatedEvidence.filter(el => ghost.evidence.includes(el)).length > 0)
+                impossible = true;
             return(
                 <Col lg={3} className="mb-4" key={idx}>
                 <MDBCard className="w-100" onClick={this.toggle(idx)}>
@@ -65,16 +96,20 @@ class Ghosts extends Component {
                     {
                         ghost.evidence.map((evidenceIndex, idxx) => {
                             let textColor = "grey-text";
-                            if(this.state.collectedEvidence.includes(evidenceIndex))
+                            if(this.state.collectedEvidence.includes(evidenceIndex) && !impossible)
                                 textColor = "green-text";
+                            if(this.state.eliminatedEvidence.includes(evidenceIndex))
+                                textColor="red-text"
                             if(impossible)
                                 textColor = "inherit";
                             return(
                                 <div key={idxx}>
                                 <p 
-                                className={
-                                    `mb-0 ${textColor}`
-                                }>
+                                className={`
+                                    mb-0 
+                                    ${textColor} 
+                                    ${this.state.eliminatedEvidence.includes(evidenceIndex) ? "line-through" : ""}
+                                `}>
                                     {Evidence[evidenceIndex]}
                                 </p>
                                 </div>
@@ -111,9 +146,13 @@ class Ghosts extends Component {
                 <Col>
                     <EvidenceChecklist 
                     collectedEvidence={this.state.collectedEvidence} 
+                    eliminatedEvidence={this.state.eliminatedEvidence}
                     addEvidence={this.addEvidence}
                     removeEvidence={this.removeEvidence}
-                    handleEvidenceReset={this.handleEvidenceReset} />
+                    eliminateEvidence={this.eliminateEvidence}
+                    removeEliminatedEvidence={this.removeEliminatedEvidence}
+                    handleEvidenceReset={this.handleEvidenceReset} 
+                    />
                 </Col>
             </Row>
             {this.renderGhosts()}
@@ -123,4 +162,16 @@ class Ghosts extends Component {
     }
 };
 
-export default Ghosts;
+const mapStateToProps = state => {
+    const collectedEvidence = state.evidence.collectedEvidence ? state.evidence.collectedEvidence : [];
+    const eliminatedEvidence = state.evidence.eliminatedEvidence ? state.evidence.eliminatedEvidence : [];
+    return { collectedEvidence, eliminatedEvidence }
+}
+
+export default connect(mapStateToProps, { 
+    addEvidence,
+    removeEvidence,
+    eliminateEvidence,
+    removeEliminatedEvidence,
+    resetEvidence
+ })(Ghosts);
