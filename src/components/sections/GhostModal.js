@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../css/GhostsModal.css';
 
 import { Container, Row, Col } from 'react-bootstrap';
 import { MDBModal, MDBModalBody, MDBBtn } from 'mdbreact';
@@ -24,11 +25,12 @@ class GhostModal extends Component {
                 <Row>
                 {
                     ghost.evidence.map((el, idx) => {
+                        if(ghost.name === "Wraith") console.log(this.props.eliminatedEvidence, el)
                         return(
                             <Col lg={4} sm={12} key={idx}>
                             <MDBBtn 
                             color={`${this.props.collectedEvidence.includes(el) ? "green" : "grey"}`} 
-                            className="ml-0 w-100" 
+                            className={`ml-0 w-100 ${this.props.eliminatedEvidence.includes(el) ? "strike-through-red" : ""}`} 
                             size="md">
                                 {Evidence[el]}
                             </MDBBtn>
