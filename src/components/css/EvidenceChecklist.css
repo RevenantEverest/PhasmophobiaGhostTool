@@ -3,3 +3,8 @@
     text-decoration: line-through;
     background: #2c2c2c !important;
 }
+
+.EvidenceChecklist .disabled {
+    color: #5c5c5c !important;
+    background: #2a2a2a !important;
+}

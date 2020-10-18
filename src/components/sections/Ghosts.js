@@ -26,35 +26,35 @@ class Ghosts extends Component {
             collectedEvidence: this.props.collectedEvidence,
             eliminatedEvidence: this.props.eliminatedEvidence
         };
-        this.addEvidence = this.addEvidence.bind(this);
-        this.removeEvidence = this.removeEvidence.bind(this);
-        this.eliminateEvidence = this.eliminateEvidence.bind(this);
-        this.removeEliminatedEvidence = this.removeEliminatedEvidence.bind(this);
+        this.handleAddEvidence = this.handleAddEvidence.bind(this);
+        this.handleRemoveEvidence = this.handleRemoveEvidence.bind(this);
+        this.handleEliminateEvidence = this.handleEliminateEvidence.bind(this);
+        this.handleRemoveEliminatedEvidence = this.handleRemoveEliminatedEvidence.bind(this);
         this.handleEvidenceReset = this.handleEvidenceReset.bind(this);
     }
 
-    addEvidence(el) {
+    handleAddEvidence(el) {
         let currentEvidence = this.state.collectedEvidence;
         currentEvidence.push(el);
         this.props.addEvidence(el);
         this.setState({ collectedEvidence: currentEvidence });
     }
 
-    removeEvidence(el) {
+    handleRemoveEvidence(el) {
         let currentEvidence = this.state.collectedEvidence;
         currentEvidence.splice(currentEvidence.indexOf(el), 1);
         this.props.removeEvidence(el);
         this.setState({ collectedEvidence: currentEvidence });
     }
 
-    eliminateEvidence(el) {
+    handleEliminateEvidence(el) {
         let currentEliminatedEvidence = this.state.eliminatedEvidence;
         currentEliminatedEvidence.push(el);
         this.props.eliminateEvidence(el);
         this.setState({ eliminateEvidence: currentEliminatedEvidence });
     }
 
-    removeEliminatedEvidence(el) {
+    handleRemoveEliminatedEvidence(el) {
         let currentEliminatedEvidence = this.state.eliminatedEvidence;
         currentEliminatedEvidence.splice(currentEliminatedEvidence.indexOf(el), 1);
         this.props.removeEliminatedEvidence(el);
@@ -126,6 +126,7 @@ class Ghosts extends Component {
                 toggle={this.toggle(idx)} 
                 ghost={ghost} 
                 collectedEvidence={this.state.collectedEvidence}
+                eliminatedEvidence={this.state.eliminatedEvidence}
                 />
                 </Col>
             );
@@ -147,10 +148,10 @@ class Ghosts extends Component {
                     <EvidenceChecklist 
                     collectedEvidence={this.state.collectedEvidence} 
                     eliminatedEvidence={this.state.eliminatedEvidence}
-                    addEvidence={this.addEvidence}
-                    removeEvidence={this.removeEvidence}
-                    eliminateEvidence={this.eliminateEvidence}
-                    removeEliminatedEvidence={this.removeEliminatedEvidence}
+                    handleAddEvidence={this.handleAddEvidence}
+                    handleRemoveEvidence={this.handleRemoveEvidence}
+                    handleEliminateEvidence={this.handleEliminateEvidence}
+                    handleRemoveEliminatedEvidence={this.handleRemoveEliminatedEvidence}
                     handleEvidenceReset={this.handleEvidenceReset} 
                     />
                 </Col>
