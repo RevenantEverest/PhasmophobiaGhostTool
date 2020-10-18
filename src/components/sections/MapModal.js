@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import '../css/MapModal.css';
 
 import { Container, Row, Col } from 'react-bootstrap';
-import { MDBModal, MDBModalBody, MDBBtn, MDBBadge } from 'mdbreact';
+import { MDBModal, MDBModalBody, MDBBtn, MDBBadge, MDBLightbox } from 'mdbreact';
 
 class MapModal extends Component {
 
@@ -13,7 +14,7 @@ class MapModal extends Component {
     render() {
         const map = this.props.map;
         return(
-            <div className="ItemModal">
+            <div className="MapModal">
             <MDBModal isOpen={this.props.modal} toggle={this.props.toggle} size="lg" centered>
             <MDBModalBody>
             <Container>
@@ -43,6 +44,17 @@ class MapModal extends Component {
                         return(<p className="d-inline" key={idxx}>{item}</p>);
                     })
                 }
+                </Col>
+            </Row>
+            <Row className="mt-3">
+                <Col>
+                <MDBLightbox md="8" images={[{src: map.guideImage}]} />
+                </Col>
+            </Row>
+            <Row className="mt-3">
+                <Col>
+                <p className="d-inline">Maps provided by </p>
+                <a className="d-inline orange-text" target="_blank" rel="noopener noreferrer" href="https://twitch.tv/kdog57">KDog57</a>
                 </Col>
             </Row>
             <Row>
