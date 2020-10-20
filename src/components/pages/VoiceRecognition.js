@@ -39,6 +39,16 @@ class VoiceRecognition extends Component {
                     <h4 className="text-uppercase f-700">Phasmophobia Voice Recognition List</h4>
                     </Col>
                 </Row>
+                <Row className="d-flex justify-content-center mt-3">
+                    <Col className="text-center" lg={6}>
+                    <p className="d-inline red-text f-700">Disclaimer: </p>
+                    <p className="d-inline">
+                        The developer of Phasmophobia encourages players to find out these voice lines themselves and considers 
+                        a list like this to be a spoiler. Using this list of voice lines before finding them out yourself may diminish your experience 
+                        in game.
+                    </p>
+                    </Col>
+                </Row>
                 <Row className="mt-4">
                     <Col>
                     <MDBCard>
