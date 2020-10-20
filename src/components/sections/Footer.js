@@ -34,6 +34,11 @@ class Footer extends Component {
                         </Row>
                         <Row>
                             <Col className="Footer-Col">
+                                <p>Created by</p><p className="Footer-Fireside"> RevevantEverest #2136</p>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col className="Footer-Col">
                                 <p>Powered by</p><p className="Footer-Fireside"> FiresideBOT</p><p>. Give us a vote over at </p>
                                 <a id="Footer-DBL-Link" target="_blank" rel="noopener noreferrer" href="https://discordbots.org/bot/441338104545017878"> DBL</a> 
                             </Col>
