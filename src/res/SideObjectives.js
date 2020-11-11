@@ -15,11 +15,15 @@ export default [
         reward: 10
     },
     {
-        name: "Detect a room below 50 fahrenheit with a Thermometer",
+        name: "Detect a room below 50°F/10°C with a Thermometer",
         reward: 10
     },
     {
         name: "Find evidence of paranormal activity with an EMF Reader",
+        reward: 10
+    },
+    {
+        name: "Get a ghost to walk through Salt",
         reward: 10
     },
     {
