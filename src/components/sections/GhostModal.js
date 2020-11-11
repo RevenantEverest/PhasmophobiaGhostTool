@@ -25,7 +25,6 @@ class GhostModal extends Component {
                 <Row>
                 {
                     ghost.evidence.map((el, idx) => {
-                        if(ghost.name === "Wraith") console.log(this.props.eliminatedEvidence, el)
                         return(
                             <Col lg={4} sm={12} key={idx}>
                             <MDBBtn 
