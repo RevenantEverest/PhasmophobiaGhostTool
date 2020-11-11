@@ -14,8 +14,10 @@ class Footer extends Component {
                 <Container fluid className="text-center text-md-left" style={{ marginBottom: "2%" }}>
                     <Row>
                     <Col md="6" className="Footer-Col__Sec1">
-                        <img src="https://i.imgur.com/KR9xQdZ.png" alt="" className="Footer-Logo" />
-                        <h5 className="title Footer-Logo-Text">FiresideBOT</h5>
+                        <a target="_blank" rel="noopener noreferrer" href="https://firesidebot.com">
+                            <img src="https://i.imgur.com/KR9xQdZ.png" alt="" className="Footer-Logo" />
+                            <h5 className="title Footer-Logo-Text">FiresideBOT</h5>
+                        </a>
                         <Row style={{ marginTop: "2%" }}>
                         <Col className="Footer-Col" style={{ marginBottom: "2%" }}>
                             <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/TqKHVUa">
@@ -34,12 +36,17 @@ class Footer extends Component {
                         </Row>
                         <Row>
                             <Col className="Footer-Col">
-                                <p>Created by</p><p className="Footer-Fireside"> RevevantEverest #2136</p>
+                                <p>Created by</p>
+                                <a className="Footer-Fireside" target="_blank" rel="noopener noreferrer" href="https://stefischer.com"> 
+                                    RevevantEverest #2136
+                                </a>
                             </Col>
                         </Row>
                         <Row>
                             <Col className="Footer-Col">
-                                <p>Powered by</p><p className="Footer-Fireside"> FiresideBOT</p><p>. Give us a vote over at </p>
+                                <p>Powered by</p>
+                                <a className="Footer-Fireside" target="_blank" rel="noopener noreferrer" href="https://firesidebot.com"> FiresideBOT</a>
+                                <p>. Give us a vote over at </p>
                                 <a id="Footer-DBL-Link" target="_blank" rel="noopener noreferrer" href="https://discordbots.org/bot/441338104545017878"> DBL</a> 
                             </Col>
                         </Row>
