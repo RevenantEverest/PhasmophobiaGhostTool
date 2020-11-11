@@ -51,26 +51,7 @@ class App extends Component {
             toggleStateA: false,
             breakWidth: 1300,
             windowWidth: 0,
-            switch2: false,
-            ghostToolData: {
-                ghostName: null,
-                isEveryone: false,
-                isAlone: false,
-                collectedEvidence: [],
-                eliminatedEvidence: [],
-                sideObjective1: {
-                    isChecked: false,
-                    name: null
-                },
-                sideObjective2: {
-                    isChecked: false,
-                    name: null
-                },
-                sideObjective3: {
-                    isChecked: false,
-                    name: null
-                },
-            }
+            switch2: false
         };
     }
     
@@ -154,7 +135,7 @@ class App extends Component {
                     </MDBNavbarNav>
                 </MDBNavbar>
                 <main style={mainStyle}>
-                    <Route exact path="/ghosttool" component={() => (<HomePage ghostToolData={this.state.ghostToolData} />)} />
+                    <Route exact path="/ghosttool" component={() => (<HomePage />)} />
                     <Route exact path="/voice" component={VoiceRecognition} />
                     <Route exact path="/items" component={Items} />
                     <Route exact path="/maps" component={Maps} />

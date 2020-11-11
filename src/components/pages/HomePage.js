@@ -23,18 +23,12 @@ class HomePage extends Component {
                 </Row>
                 <Row>
                     <Col>
-                        <Notes 
-                        className="mt-3" 
-                        ghostToolData={this.props.ghostToolData}
-                        />
+                        <Notes className="mt-3" />
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <Ghosts 
-                        className="mt-3"
-                        ghostToolData={this.props.ghostToolData}
-                        />
+                        <Ghosts className="mt-3" />
                     </Col>
                 </Row>
             </Container>
