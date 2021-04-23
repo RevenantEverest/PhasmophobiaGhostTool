@@ -59,6 +59,19 @@ export default [
         guideImage: "https://i.imgur.com/lkCnO2f.png"
     },
     {
+        name: "Prison",
+        size: "Medium",
+        teamSize: 3,
+        recommendedItems: [
+            "Sanity Pills"
+        ],
+        description: `This Prison was recently closed due to some unexplainable deaths. Got an email from a friend. He says there is definitely 
+        some kind of paranormal activity here. Make sure you take a careful look around and gather as much evidence as you can for the ghost removal team. 
+        More info when you arrive.`,
+        guideImage: "https://i.imgur.com/mWlg1R6.png",
+        isNew: true
+    },
+    {
         name: "Ridgeview Road House",
         size: "Small",
         teamSize: 2,

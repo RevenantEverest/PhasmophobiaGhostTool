@@ -8,3 +8,9 @@
     cursor: pointer;
     
 }
+
+#Maps .badge {
+    position: relative;
+    top: -3px;
+    font-size: 10px;
+}
