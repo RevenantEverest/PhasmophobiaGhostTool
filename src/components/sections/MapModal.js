@@ -53,8 +53,10 @@ class MapModal extends Component {
             </Row>
             <Row className="mt-3">
                 <Col>
+                <div className="provided-by">
                 <p className="d-inline">Maps provided by </p>
                 <a className="d-inline orange-text" target="_blank" rel="noopener noreferrer" href="https://twitch.tv/kdog57">KDog57</a>
+                </div>
                 </Col>
             </Row>
             <Row>

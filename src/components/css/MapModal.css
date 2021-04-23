@@ -1,3 +1,8 @@
 .MapModal .mdb-lightbox {
     padding-left: 0 !important;
 }
+
+.MapModal .provided-by {
+    font-size: 16px;
+    font-style: italic;
+  }

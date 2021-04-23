@@ -30,10 +30,9 @@ class Items extends Component {
                 <MDBCardBody>
                 <Row>
                     <Col className="text-center">
-                    <h5 className="d-inline f-600">
-                        {map.name} 
-                    </h5>
-                    {map.isNew ? <MDBBadge color="red" className="ml-2">New</MDBBadge> : ''}
+                    {map.isNew ? <MDBBadge color="red" className="mr-2">New</MDBBadge> : ''}
+                    <h5 className="d-inline f-600">{map.name} </h5>
+                    
                     <h6 className="f-600">{map.size}</h6>
                     </Col>
                 </Row>
