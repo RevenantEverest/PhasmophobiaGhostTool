@@ -5,3 +5,9 @@
     font-size: 14px;
 }
 
+.SideObjectiveSelect .badge {
+    position: relative;
+    top: -3px;
+    font-size: 10px;
+}
+

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../css/Maps.css';
 
 import { Container, Row, Col } from 'react-bootstrap';
-import { MDBCard, MDBCardBody } from 'mdbreact';
+import { MDBCard, MDBCardBody, MDBBadge } from 'mdbreact';
 
 import MapModal from '../sections/MapModal';
 
@@ -30,7 +30,10 @@ class Items extends Component {
                 <MDBCardBody>
                 <Row>
                     <Col className="text-center">
-                    <h5 className="d-inline f-600">{map.name} </h5>
+                    <h5 className="d-inline f-600">
+                        {map.name} 
+                    </h5>
+                    {map.isNew ? <MDBBadge color="red" className="ml-2">New</MDBBadge> : ''}
                     <h6 className="f-600">{map.size}</h6>
                     </Col>
                 </Row>

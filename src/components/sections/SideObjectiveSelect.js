@@ -44,7 +44,10 @@ class SideObjectiveSelect extends Component {
     renderSideObjectives() {
         let SideObjectivesOption = SideObjectives.map((objective, idx) => {
             return(
-                <option value={objective.name} key={idx}>{objective.name}</option>
+                <option  value={objective.name} key={idx}>
+                    {objective.isNew ? "(New) " : ''}
+                    {objective.name}
+                </option>
             );
         });
 

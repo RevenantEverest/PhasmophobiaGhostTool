@@ -3,11 +3,12 @@ export default [
         name: "Capture a photo of the Ghost",
         reward: 10
     },
+    // {
+    //     name: "Cleanse the area using Smudge Sticks",
+    //     reward: 10
+    // },
     {
-        name: "Capture a photo of Dirty Water in a sink"
-    },
-    {
-        name: "Cleanse the area using Smudge Sticks",
+        name: "Cleanse the area near the Ghost using Smudge Sticks",
         reward: 10
     },
     {
@@ -23,15 +24,35 @@ export default [
         reward: 10
     },
     {
+        name: "Get a Ghost to blow out a Candle",
+        reward: 10,
+        isNew: true
+    },
+    {
         name: "Get a ghost to walk through Salt",
         reward: 10
+    },
+    {
+        name: "Get an average sanity below 25%",
+        reward: 10,
+        isNew: true
     },
     {
         name: "Have a member of your team witness a Ghost Event",
         reward: 10
     },
     {
+        name: "Have a member of your team escape the Ghost during a hunt",
+        reward: 10,
+        isNew: true
+    },
+    {
         name: "Prevent the Ghost from hunting with a Crucifix",
         reward: 10
+    },
+    {
+        name: "Repel the Ghost with a smudge stick while it's chasing someone",
+        reward: 10,
+        isNew: true
     }
 ];
