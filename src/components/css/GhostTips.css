@@ -1,0 +1,17 @@
+.GhostTips .card-header {
+    background: #444444 !important;
+    /* background: #616161 !important; */
+}
+
+.GhostTips .card-body {
+    background: #333333 !important;
+}
+
+.GhostTips .spoiler-notice {
+    font-size: 14px;
+}
+
+.GhostTips .provided-by {
+    font-size: 14px;
+    font-style: italic;
+}

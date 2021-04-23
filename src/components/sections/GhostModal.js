@@ -5,6 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { MDBModal, MDBModalBody, MDBBtn } from 'mdbreact';
 
 import Evidence from '../../res/Evidence';
+import GhostTips from './GhostTips';
 
 class GhostModal extends Component {
 
@@ -61,6 +62,11 @@ class GhostModal extends Component {
                 <Col lg={10}>
                 <p className="d-inline f-600">Weaknesses: </p>
                 <p className="d-inline">{ghost.weaknesses}</p>
+                </Col>
+            </Row>
+            <Row className="d-flex justify-content-start mt-4 mb-4">
+                <Col>
+                <GhostTips ghost={ghost} />
                 </Col>
             </Row>
             <Row>
